@@ -12,8 +12,8 @@ Route::middleware('api.token')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('me', [AuthController::class, 'me']);
 
-    Route::apiResource('products', ProductController::class);
-    Route::apiResource('customers', CustomerController::class);
-    Route::apiResource('transactions', TransactionController::class);
+    Route::apiResource('products', ProductController::class)->names('api.products');
+    Route::apiResource('customers', CustomerController::class)->names('api.customers');
+    Route::apiResource('transactions', TransactionController::class)->names('api.transactions');
     Route::get('generate-inv', [TransactionController::class, 'generateInvNumber']);
 });
